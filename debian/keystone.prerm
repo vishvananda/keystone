@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+. /usr/share/dbconfig-common/dpkg/prerm
+
+
+db_get keystone/configure_db
+if [ "$RET" = "true" ]; then
+	# Only cleanup with dbconfig if it was used during
+	# installation (LP: #948719)
+	dbc_go keystone $@
+fi
+
+#DEBHELPER#
+

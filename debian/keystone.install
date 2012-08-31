@@ -1,0 +1,6 @@
+usr/bin/*
+etc/keystone.conf.sample usr/share/keystone
+etc/default_catalog.templates etc/keystone
+etc/policy.json etc/keystone
+tools/sample_data.sh usr/share/keystone
+tools/convert_to_sqlite.sh usr/share/keystone

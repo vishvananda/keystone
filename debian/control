@@ -1,0 +1,109 @@
+Source: keystone
+Section: net
+Priority: extra
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Monty Taylor <mordred@inaugust.com>
+Uploaders: Soren Hansen <soren@ubuntu.com>
+Build-Depends: debhelper (>= 7.0.50),
+ pep8,
+ pylint,
+ python-all (>= 2.6),
+ python-all-dev (>= 2.6.6-3~) | python-support,
+ python-eventlet,
+ python-keystoneclient,
+ python-ldap,
+ python-lxml,
+ python-memcache,
+ python-migrate,
+ python-mox, 
+ python-nose,
+ python-nova,
+ python-pam,
+ python-passlib,
+ python-paste,
+ python-pastedeploy,
+ python-prettytable,
+ python-routes,
+ python-sphinx,
+ python-sqlalchemy,
+ python-swift,
+ python-unittest2,
+ python-webob,
+ python-webtest,
+ python-iso8601
+Standards-Version: 3.9.3
+XS-Python-Version: >= 2.6
+Homepage: http://launchpad.net/keystone
+Vcs-Bzr: https://code.launchpad.net/~ubuntu-server-dev/keystone/essex
+
+Package: python-keystone
+Architecture: all
+Section: python
+Depends: ${python:Depends}, ${misc:Depends},
+ python-eventlet,
+ python-greenlet,
+ python-lxml,
+ python-migrate,
+ python-pam,
+ python-passlib,
+ python-paste,
+ python-pastedeploy,
+ python-prettytable,
+ python-routes,
+ python-sqlalchemy,
+ python-migrate,
+ python-prettytable,
+ python-keystoneclient,
+ python-webob,
+ python-iso8601
+Suggests: python-memcached
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: OpenStack identity service - Python library
+ Keystone is a proposed independent authentication service for OpenStack.
+ .
+ This initial proof of concept aims to address the current use cases in Swift
+ and Nova which are:
+ .
+  * REST-based, token auth for Swift
+  * many-to-many relationship between identity and tenant for Nova. Keystone
+    does authentication and stuff
+ .
+ This package contains the Python libraries.
+
+Package: keystone
+Architecture: all
+Section: python
+Depends: ${python:Depends}, ${misc:Depends},
+ python-keystone (= ${source:Version}),
+ adduser,
+ ssl-cert (>= 1.0.12),
+ dbconfig-common
+Description: OpenStack identity service - Daemons
+ Keystone is a proposed independent authentication service for OpenStack.
+ .
+ This initial proof of concept aims to address the current use cases in Swift
+ and Nova which are:
+ .
+  * REST-based, token auth for Swift
+  * many-to-many relationship between identity and tenant for Nova. Keystone
+    does authentication and stuff
+ .
+ This package contains the daemons.
+
+Package: keystone-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}, libjs-jquery
+Description: OpenStack identity service - Documentation
+ Keystone is a proposed independent authentication service for OpenStack.
+ .
+ This initial proof of concept aims to address the current use cases in Swift
+ and Nova which are:
+ .
+  * REST-based, token auth for Swift
+  * many-to-many relationship between identity and tenant for Nova. Keystone
+    does authentication and stuff
+ .
+ This package contains the documentation.
+
